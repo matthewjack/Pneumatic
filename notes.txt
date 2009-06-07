@@ -1,0 +1,10 @@
+Notes without another home
+--------------------------
+
+A profiling system will eventually be handy
+
+If assertions form part of an interface, can they be done in such a way that they can also be unit tested?
+Perhaps they can be axceptions, and thus caught, or perhaps they can be compiled into setting a flag for checking instead.
+Already, with the time system, knowing that there are assertions on certain events is crucial.
+
+Sometimes the unit tests may require extra functions that simulate things like lengths of time passing, or unreadable files, or...
