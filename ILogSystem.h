@@ -49,13 +49,13 @@ public:
 #endif
 
 #define PN_LOG(level,format,...) \
-	if ( (level) <= PN_LOG_LEVEL ) {gEnv->pLog->Log((level),(format),__VA_ARGS__);}
+	if ( (level) <= PN_LOG_LEVEL ) {gEnv.sys.pLogSystem->Log((level),(format),__VA_ARGS__);}
 
-#define PN_LOG_EXT(level,format,code_block,...) \
+#define PN_LOG_EXT(level,code_block,format,...) \
 	if ( (level) <= PN_LOG_LEVEL ) \
 	{ \
-		code_block \
-		gEnv->pLog->Log((level),(format),__VA_ARGS__); \
+		code_block ; \
+		gEnv.sys.pLogSystem->Log((level),(format),__VA_ARGS__); \
 	} 
 
 

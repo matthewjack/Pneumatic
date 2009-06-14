@@ -12,6 +12,12 @@
 class CLogSystem : public ILogSystem
 {
 public:
+	/// Unique to this implementation
+	
+	bool SetLogPath( const char * sPath, bool bTest = false );  // Set path of file to use for logging. bTest = true will cause it to try to create and delete the file.
+	
+
+	/// ILogSystem interface
 	static ILogSystem * Create();
 
 	CLogSystem(void);
@@ -19,14 +25,15 @@ public:
 	
 	void Destroy();
 
-	bool SetLogPath( const char * sPath, bool bTest = false );                   // Set path of file to use for logging. bTest = true will cause it to try to create and delete the file.
-	                                                         // Returns false iff a test was attempted and failed.
 
 	ELogVerbosity GetVerbosity() const;
 	void SetVerbosity(ELogVerbosity eVerbosity); 
 	TVerbosityPeeker GetVerbosityPeeker() const;
 
 	void Log(ELogVerbosity eVerbosity, const char * format, ...);
+
+                                                           // Returns false iff a test was attempted and failed.
+
 
 protected:
 	bool OpenFile();
