@@ -8,9 +8,14 @@
 // Is it more or less correct to call last frame time the time between frames?
 
 #include "Settings.h"
+#include "ISystem.h"
 
-struct ITimeSystem
+struct ITimeSystem : public ISystem
 {
+	/// ISystem methods
+	SErrorDescriptor UnitTest(ILogSystem *pLog);
+
+	/// New methods
 	virtual void Destroy() = 0;                              // Cleanup and delete
 
 	virtual void StartSession() = 0;                         // Universe begins. Nothing that happened before matters.
@@ -33,6 +38,5 @@ struct ITimeSystem
 	virtual double GetLastFrameDuration() const = 0;         // How long did the last frame actually take?
 	virtual double GetSmoothFrameDuration() const = 0;       // How long do we guess this frame will take?
 
-	// Unit tests to run on a newly created TimeSystem implementation
-	bool  UnitTest();
+
 };

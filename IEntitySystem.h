@@ -41,7 +41,7 @@ struct SEntityQuery
 
 
 
-struct IEntitySystem
+struct IEntitySystem : public ISystem
 {
 	virtual EntityId Register(IEntity *pEntity) = 0;
 	virtual bool Deregister(EntityId nId) = 0;

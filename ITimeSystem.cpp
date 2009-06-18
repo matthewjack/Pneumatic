@@ -17,7 +17,7 @@
 
 
 
-bool ITimeSystem::UnitTest()
+SErrorDescriptor ITimeSystem::UnitTest(ILogSystem *pLog)
 {
 	double a,b,c,d,e,f;
 
@@ -153,5 +153,5 @@ bool ITimeSystem::UnitTest()
 	virtual double GetLastFrameTime() const = 0;  // How long did the last frame actually take?
 	virtual double GetSmoothFrameTime() const = 0;// How long do we guess this frame will take?
 */
-	return true;
+	return PN_NO_ERROR;
 }

@@ -6,19 +6,24 @@
 
 #include "stdio.h"
 
+// Should be called LogFileSystem!
+
 // This implementation logs to files only
 // When created, it has no files to log to, it must be set
 
 class CLogSystem : public ILogSystem
 {
 public:
+	/// ILogSystem interface
+	static ILogSystem * Create();
+	SErrorDescriptor UnitTest(ILogSystem *) 
+		{ return SErrorDescriptor(); }                         // Very awkward to unit test this implementation
+	
 	/// Unique to this implementation
 	
 	bool SetLogPath( const char * sPath, bool bTest = false );  // Set path of file to use for logging. bTest = true will cause it to try to create and delete the file.
 	
 
-	/// ILogSystem interface
-	static ILogSystem * Create();
 
 	CLogSystem(void);
 	~CLogSystem(void);
