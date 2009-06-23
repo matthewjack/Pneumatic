@@ -10,7 +10,7 @@ public:
 	/// IEntitySystem methods
 	EntityId Create(EEntityType eType, const char * sName);
 	bool Destroy(EntityId nId);
-	bool Find(const SEntityQuery &query, TEntities &result);
+	bool Find(const SEntityQuery &query, TEntities &result) const;
 
 	/// New methods
 	CEntitySystem(void);

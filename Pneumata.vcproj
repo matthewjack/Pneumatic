@@ -200,10 +200,6 @@
 				RelativePath=".\TimeSystem.h"
 				>
 			</File>
-			<File
-				RelativePath=".\UnitTests.cpp"
-				>
-			</File>
 		</Filter>
 		<Filter
 			Name="Interfaces"
@@ -276,13 +272,17 @@
 				RelativePath=".\ITimeSystem.cpp"
 				>
 			</File>
+			<File
+				RelativePath=".\UnitTests.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\UnitTests.h"
+				>
+			</File>
 		</Filter>
 		<File
 			RelativePath=".\notes.txt"
-			>
-		</File>
-		<File
-			RelativePath=".\UnitTests.h"
 			>
 		</File>
 	</Files>

@@ -1,3 +1,5 @@
+#pragma once
+
 // Physics proxy interface
 
 #include "Definitions.h"

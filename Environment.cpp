@@ -2,6 +2,7 @@
 
 #include "TimeSystem.h"
 #include "LogSystem.h"
+#include "EntitySystem.h"
 
 // A few pinciples:
 // For each system it should be possible to create and unit test multiple instances
@@ -24,7 +25,7 @@ CEnvironment::CEnvironment()
 
 void CEnvironment::Init(SConfiguration &config)
 {
-	//sys.pEntitySystem = new CEntitySystem();
+	sys.pEntitySystem = new CEntitySystem();
 	//sys.pPersonalitySystem = new CPersonalitySystem();
 	//sys.pPhysicsSystem = new CPhysicsSystem();
 	//sys.pRenderSystem = new CRenderSystem();
@@ -42,7 +43,7 @@ void CEnvironment::Init(SConfiguration &config)
 
 CEnvironment::~CEnvironment(void)
 {
-	//delete sys.pEntitySystem;
+	delete sys.pEntitySystem;
 	//delete sys.pPersonalitySystem;
 	//delete sys.pPhysicsSystem;
 	//delete sys.pRenderSystem;

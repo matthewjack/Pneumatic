@@ -1,3 +1,4 @@
+#pragma once
 
 #define PN_ENTITY_NAME_LENGTH 32
 

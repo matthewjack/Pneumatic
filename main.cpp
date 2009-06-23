@@ -9,6 +9,10 @@
 
 void main( int argc, char *argv[ ], char *envp[ ] )
 {
+	// What would make most sense is:
+	// Optionally test the logger, then create just the logger in the environment
+	// Then proceed with the other unit tests
+
 	CUnitTests tests;
 	tests.Execute();
 
@@ -21,6 +25,8 @@ void main( int argc, char *argv[ ], char *envp[ ] )
 	PN_LOG(eLV_WARNINGS,"%d foo %s", 45, "myFoot");
 
 	PN_LOG_EXT(eLV_ERRORS, int b = 5+4, "%d foo %s",b, "myFoot");
+
+	
 
 	_getch();
 }

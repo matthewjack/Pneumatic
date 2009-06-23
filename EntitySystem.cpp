@@ -44,7 +44,7 @@ bool CEntitySystem::Destroy(EntityId nId)
 	return true;
 }
 
-bool CEntitySystem::Find(const SEntityQuery &query, TEntities &result)
+bool CEntitySystem::Find(const SEntityQuery &query, TEntities &result) const
 {
 	return true;
 }

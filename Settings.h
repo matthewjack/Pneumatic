@@ -1,3 +1,4 @@
+#pragma once
 
 // Optional settings to configure compilation
 

@@ -64,5 +64,5 @@ struct IEntitySystem : public ISystem
 
 	virtual EntityId Create(EEntityType eType, const char * sName = NULL) = 0;  // Create a new, empty entity of this type
 	virtual bool Destroy(EntityId nId) = 0;              // Cleanup and destroy an existing entity. Returns false iff no such id.
-	virtual TEntities & Find(const SEntityQuery &query) const = 0; 
+	virtual bool Find(const SEntityQuery &query, TEntities &result) const = 0; 
 };
