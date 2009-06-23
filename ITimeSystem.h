@@ -16,8 +16,6 @@ struct ITimeSystem : public ISystem
 	SErrorDescriptor UnitTest(ILogSystem *pLog);
 
 	/// New methods
-	virtual void Destroy() = 0;                              // Cleanup and delete
-
 	virtual void StartSession() = 0;                         // Universe begins. Nothing that happened before matters.
 	virtual void EndSession() = 0;				                   // Universe ends. Time ceases to exist.
 

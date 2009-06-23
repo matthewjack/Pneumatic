@@ -6,12 +6,8 @@
 class CTimeSystem : public ITimeSystem
 {
 public:
-	static ITimeSystem * Create();
-
 	CTimeSystem();
 	~CTimeSystem();
-
-	void Destroy();
 
 	void StartSession(); 
 	void EndSession();	

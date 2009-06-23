@@ -2,11 +2,11 @@
 
 #include "Settings.h"
 
-struct IPersonality
+struct IRender
 {
 };
 
-struct IPersonalitySystem
+struct IRenderSystem
 {
 	void Update(float fDelta);
 };

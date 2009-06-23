@@ -15,7 +15,6 @@ class CLogSystem : public ILogSystem
 {
 public:
 	/// ILogSystem interface
-	static ILogSystem * Create();
 	SErrorDescriptor UnitTest(ILogSystem *) 
 		{ return SErrorDescriptor(); }                         // Very awkward to unit test this implementation
 	
@@ -23,14 +22,9 @@ public:
 	
 	bool SetLogPath( const char * sPath, bool bTest = false );  // Set path of file to use for logging. bTest = true will cause it to try to create and delete the file.
 	
-
-
 	CLogSystem(void);
 	~CLogSystem(void);
 	
-	void Destroy();
-
-
 	ELogVerbosity GetVerbosity() const;
 	void SetVerbosity(ELogVerbosity eVerbosity); 
 	TVerbosityPeeker GetVerbosityPeeker() const;

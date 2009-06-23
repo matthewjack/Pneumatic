@@ -15,6 +15,9 @@ typedef int RenderType;
 
 typedef int EntityId;
 
+struct IPhysics;
+struct IPersonality;
+struct IRender;
 
 enum EErrorType
 {
@@ -29,15 +32,14 @@ enum ESystemImplementation
 	eSI_LogBuffer,
 };
 
-
-//typedef std::vector <EntityId> TEntities;
-
 // Used as a structured errno, intended to be given as hex
 // Type = { } - might be unused, but left with f.p. exceptions in mind, other broad descriptions across all systems
 // System = { ESystemImplementation }
 // Subsystem = { Collisions... } - defined by the System implementation, unique within that system
 // Location - just a number, unique to the subsystem, identifying which check failed
 // Perhaps a string should be added to this, or perhaps we're jsut as well without
+
+// Actually, I'm quite tempted to just use this where needed but just pass it around as a plain int32
 
 enum epn_no_error { PN_NO_ERROR };
 

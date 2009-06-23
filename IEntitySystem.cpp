@@ -1,9 +1,7 @@
 #include "IEntitySystem.h"
 
-IEntitySystem::IEntitySystem(void)
+SErrorDescriptor IEntitySystem::UnitTest(ILogSystem *pLog)
 {
-}
-
-IEntitySystem::~IEntitySystem(void)
-{
+	SErrorDescriptor result;
+	return result;
 }

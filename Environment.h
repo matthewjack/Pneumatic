@@ -38,8 +38,9 @@ public:
 
 
 	CEnvironment();                                          // Create empty environment
-	void Init(SConfiguration &config);                       // Initialise environment, given configuration
 	~CEnvironment(void);                                     // Clean up and destroy environment
+
+	void Init(SConfiguration &config);                       // Initialise environment, given configuration
 };
 
 extern CEnvironment gEnv;

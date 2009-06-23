@@ -5,9 +5,6 @@
 #include <stdarg.h>
 #include <assert.h>
 
-ILogSystem * CLogSystem::Create()
-{ return new CLogSystem(); }
-
 CLogSystem::CLogSystem(void)
 {
 	m_fp = NULL;
@@ -18,11 +15,6 @@ CLogSystem::CLogSystem(void)
 CLogSystem::~CLogSystem(void)
 {
 	CloseFile();
-}
-
-void CLogSystem::Destroy()
-{
-	delete this; 
 }
 
 bool CLogSystem::SetLogPath( const char * sPath, bool bTest )

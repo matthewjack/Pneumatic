@@ -11,4 +11,5 @@ struct ISystem
 {
 
 	virtual SErrorDescriptor UnitTest(ILogSystem *pLog = NULL) = 0;         // Giving a logger is optional
+	virtual ~ISystem() {};                                                  // Destroy the system
 };

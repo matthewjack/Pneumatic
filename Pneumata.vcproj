@@ -165,6 +165,14 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\EntitySystem.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\EntitySystem.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Environment.cpp"
 				>
 			</File>
@@ -201,6 +209,10 @@
 			Name="Interfaces"
 			>
 			<File
+				RelativePath=".\IEntity.h"
+				>
+			</File>
+			<File
 				RelativePath=".\IEntitySystem.h"
 				>
 			</File>
@@ -213,7 +225,15 @@
 				>
 			</File>
 			<File
+				RelativePath=".\IPhysics.h"
+				>
+			</File>
+			<File
 				RelativePath=".\IPhysicsSystem.h"
+				>
+			</File>
+			<File
+				RelativePath=".\IRenderSystem.h"
 				>
 			</File>
 			<File
@@ -248,6 +268,10 @@
 		<Filter
 			Name="Testing"
 			>
+			<File
+				RelativePath=".\IEntitySystem.cpp"
+				>
+			</File>
 			<File
 				RelativePath=".\ITimeSystem.cpp"
 				>

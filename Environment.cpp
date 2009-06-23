@@ -28,10 +28,10 @@ void CEnvironment::Init(SConfiguration &config)
 	//sys.pPersonalitySystem = new CPersonalitySystem();
 	//sys.pPhysicsSystem = new CPhysicsSystem();
 	//sys.pRenderSystem = new CRenderSystem();
-	sys.pTimeSystem = CTimeSystem::Create();
+	sys.pTimeSystem = new CTimeSystem();
 
 	// Create log system and start log file
-	CLogSystem *pLog = (CLogSystem *) CLogSystem::Create();
+	CLogSystem *pLog = new CLogSystem();
 	if (config.sLogFilename)
 		pLog->SetLogPath(config.sLogFilename);
 	pLog->Log(eLV_EVENTS,"Pneumata log file started");
@@ -46,7 +46,7 @@ CEnvironment::~CEnvironment(void)
 	//delete sys.pPersonalitySystem;
 	//delete sys.pPhysicsSystem;
 	//delete sys.pRenderSystem;
-	sys.pTimeSystem->Destroy();
-	sys.pLogSystem->Destroy();
+	delete sys.pTimeSystem;
+	delete sys.pLogSystem;
 }
 

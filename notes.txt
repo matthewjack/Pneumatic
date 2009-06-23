@@ -8,3 +8,9 @@ Perhaps they can be axceptions, and thus caught, or perhaps they can be compiled
 Already, with the time system, knowing that there are assertions on certain events is crucial.
 
 Sometimes the unit tests may require extra functions that simulate things like lengths of time passing, or unreadable files, or...
+
+The singular of Pneumata is Pneumata.
+
+Basic smartpointers seem useful in a bunch of places. Fish those out.
+
+One advantage of "silly" base types like just defining a destructor: you can call delete on an interface without knowing anything about it - at least in principle.

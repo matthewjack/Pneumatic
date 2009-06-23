@@ -32,9 +32,9 @@ public:
 	virtual SErrorDescriptor UnitTest(ILogSystem *pLog) = 0; // Unit testing a logger is awkward - we delegate it
 
 	/// New methods
-	typedef const ELogVerbosity * const TVerbosityPeeker;
+	virtual ~ILogSystem() {};
 
-	virtual void Destroy() = 0;                              // Cleanup and delete
+	typedef const ELogVerbosity * const TVerbosityPeeker;
 
 	virtual ELogVerbosity GetVerbosity() const = 0;                // Get currently set verbosity level 
 	virtual void SetVerbosity(ELogVerbosity eVerbosity) = 0;       // Set verbosity level. Defaults to eLV_EVENTS

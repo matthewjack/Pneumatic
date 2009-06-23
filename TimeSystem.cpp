@@ -10,10 +10,6 @@
 	Some duplication around pausing
 */
 
-
-ITimeSystem * CTimeSystem::Create()
-{	return new CTimeSystem(); }
-
 CTimeSystem::CTimeSystem(void)
 {
 	m_dSmoothFrameDuration = 0.01f; // Assume 100Hz to start with
@@ -24,9 +20,6 @@ CTimeSystem::CTimeSystem(void)
 
 CTimeSystem::~CTimeSystem(void)
 {}
-
-void CTimeSystem::Destroy()
-{ delete this; }
 
 void CTimeSystem::StartSession()
 {
