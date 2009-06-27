@@ -1,5 +1,6 @@
-#include "TimeSystem.h"
-#include "LogSystem.h"
+#include "ITimeSystem.h"
+#include "ILogSystem.h"
+#include "IRenderSystem.h"
 
 #include "Environment.h"
 
@@ -26,6 +27,8 @@ void main( int argc, char *argv[ ], char *envp[ ] )
 
 	PN_LOG_EXT(eLV_ERRORS, int b = 5+4, "%d foo %s",b, "myFoot");
 
+	for (int i=0; i<360; i++)
+		gEnv.sys.pRenderSystem->Update(0.1f);
 	
 
 	_getch();
