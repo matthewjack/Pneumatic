@@ -63,5 +63,5 @@ struct SErrorDescriptor
 		: type(_type), system(_system), subsystem(_subsystem), location(_location)
 	{}
 
-	operator unsigned int() const { return location & (subsystem << 8) &  (system << 16) &  (type << 24); }
+	operator unsigned int() const { return location | (subsystem << 8) | (system << 16) | (type << 24); }
 };
