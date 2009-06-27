@@ -1,5 +1,8 @@
 #pragma once
 
+// Correct name would be RenderSDLOpenGL?
+// Or possible OGL/DX are subclasses, but that seems OTT
+
 #include "IRenderSystem.h"
 
 class CRenderSDLSystem : public IRenderSystem
