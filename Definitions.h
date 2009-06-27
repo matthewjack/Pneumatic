@@ -21,22 +21,28 @@ struct IRender;
 
 enum EErrorType
 {
-	eET_None,
+	eET_General = 0,                                         // Something broke :-)
+	eET_External,                                            // A third-party component reported the error
 };
 
+// Try and maintain these values after any release - they are intended to be usefully reported
 enum ESystemImplementation
 {
 	eSI_Time = 1,
-	eSI_PhysicsVerlet,
-	eSI_LogFile,
+
+	eSI_PhysicsVerlet = 8,
+
+	eSI_LogFile = 16,
 	eSI_LogBuffer,
+
+	eSI_RenderSDL = 24,
 };
 
 // Used as a structured errno, intended to be given as hex
 // Type = { } - might be unused, but left with f.p. exceptions in mind, other broad descriptions across all systems
 // System = { ESystemImplementation }
 // Subsystem = { Collisions... } - defined by the System implementation, unique within that system
-// Location - just a number, unique to the subsystem, identifying which check failed
+// Location - just a number, unique within the subsystem, identifying which check failed
 // Perhaps a string should be added to this, or perhaps we're jsut as well without
 
 // Actually, I'm quite tempted to just use this where needed but just pass it around as a plain int32

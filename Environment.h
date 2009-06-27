@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Settings.h"
+#include "Definitions.h"
 
 struct IPhysicsSystem;
 struct IRenderSystem;
@@ -40,7 +41,7 @@ public:
 	CEnvironment();                                          // Create empty environment
 	~CEnvironment(void);                                     // Clean up and destroy environment
 
-	void Init(SConfiguration &config);                       // Initialise environment, given configuration
+	SErrorDescriptor Init(SConfiguration &config);           // Initialise environment, given configuration
 };
 
 extern CEnvironment gEnv;

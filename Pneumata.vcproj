@@ -58,6 +58,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="SDL.lib SDLmain.lib"
 				GenerateDebugInformation="true"
 				RandomizedBaseAddress="1"
 				DataExecutionPrevention="0"
@@ -193,6 +194,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\RenderSDLSystem.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\TimeSystem.cpp"
 				>
 			</File>
@@ -283,6 +288,10 @@
 		</Filter>
 		<File
 			RelativePath=".\notes.txt"
+			>
+		</File>
+		<File
+			RelativePath=".\RenderSDLSystem.h"
 			>
 		</File>
 	</Files>

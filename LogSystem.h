@@ -20,6 +20,7 @@ public:
 	
 	/// Unique to this implementation
 	
+	// Could become Init(...) ?
 	bool SetLogPath( const char * sPath, bool bTest = false );  // Set path of file to use for logging. bTest = true will cause it to try to create and delete the file.
 	
 	CLogSystem(void);
