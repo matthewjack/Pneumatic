@@ -286,6 +286,18 @@
 				>
 			</File>
 		</Filter>
+		<Filter
+			Name="nanosvg"
+			>
+			<File
+				RelativePath=".\nanosvg\nanosvg.c"
+				>
+			</File>
+			<File
+				RelativePath=".\nanosvg\nanosvg.h"
+				>
+			</File>
+		</Filter>
 		<File
 			RelativePath=".\notes.txt"
 			>

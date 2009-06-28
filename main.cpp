@@ -27,9 +27,9 @@ void main( int argc, char *argv[ ], char *envp[ ] )
 
 	PN_LOG_EXT(eLV_ERRORS, int b = 5+4, "%d foo %s",b, "myFoot");
 
-	for (int i=0; i<360; i++)
+	for (int i=0; i<2000; i++)
 		gEnv.sys.pRenderSystem->Update(0.1f);
 	
 
-	_getch();
+	//_getch();
 }

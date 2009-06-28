@@ -9,6 +9,9 @@
 #include "Environment.h"
 #include "ILogSystem.h"
 
+#include "nanosvg/nanosvg.h"
+#include "Vec2.h"
+
 CRenderSDLSystem::CRenderSDLSystem()
 {
 }
@@ -102,6 +105,9 @@ CRenderSDLSystem::~CRenderSDLSystem()
 
 void CRenderSDLSystem::Update(float fDelta)
 {
+	static float angle = 0.0f;
+	if (angle < 360.0f)
+	{
     static GLfloat v0[] = { -1.0f, -1.0f,  1.0f };
     static GLfloat v1[] = {  1.0f, -1.0f,  1.0f };
     static GLfloat v2[] = {  1.0f,  1.0f,  1.0f };
@@ -130,16 +136,8 @@ void CRenderSDLSystem::Update(float fDelta)
     glTranslatef( 0.0, 0.0, -5.0 );
 
     /* Rotate. */
-		static float angle = 30.0f;
     glRotatef( angle, 0.0, 1.0, 0.0 );
-
-    if( true ) {
-
-        if( ++angle > 360.0f ) {
-            angle = 0.0f;
-        }
-
-    }
+		angle++;
 
     /* Send our triangle data to the pipeline. */
     glBegin( GL_TRIANGLES );
@@ -231,4 +229,59 @@ void CRenderSDLSystem::Update(float fDelta)
     glEnd( );
 
 	SDL_GL_SwapBuffers();
+	}
+	else
+	{
+const float XSize = 640, YSize = 480;
+glMatrixMode (GL_PROJECTION);
+glLoadIdentity ();
+glOrtho (0, XSize, YSize, 0, 0, 1);
+glMatrixMode (GL_MODELVIEW);
+glLoadIdentity ();
+
+glDisable(GL_DEPTH_TEST);
+    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+//glClear(GL_COLOR_BUFFER_BIT); // no depth buffer
+
+			glColor3f(1.0f, 1.0f, 1.0);
+			glBegin(GL_LINE_STRIP);
+			glVertex2f(100.0f,100.0f);
+			glVertex2f(200.0f,200.0f);
+			glEnd();
+
+			gEnv.sys.pLogSystem->Log(eLV_ERRORS, "Any error?: %s\n", SDL_GetError());
+
+		// Load
+		static struct SVGPath* plist = 0;
+		if (!plist)
+			plist = svgParseFromFile("test.svg");
+		// Use...
+		for (SVGPath* it = plist; it; it = it->next)
+		{
+			glColor3f(1.0f, 1.0f, 1.0);
+			glBegin(GL_LINE_STRIP);
+			for (int i=0; i<it->npts; i++)
+			{
+				Vec2 vPoint(it->pts[i*2], it->pts[i*2+1]);
+				glVertex2f(vPoint.x,vPoint.y);
+				//float* pts;
+				//int npts;
+				//unsigned int fillColor;
+				//unsigned int strokeColor;
+				//float strokeWidth;
+				//char hasFill;
+				//char hasStroke;
+				//char closed;
+				//struct SVGPath* next;
+			}
+			glEnd();
+		// Delete
+		//svgDelete(plist);
+		}
+		
+
+
+	SDL_GL_SwapBuffers();
+	}
+
 }
