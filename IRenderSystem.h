@@ -2,10 +2,15 @@
 
 #include "Settings.h"
 #include "ISystem.h"
+#include "IRender.h"
 
-struct IRender
+enum ERenderType
 {
+	eRT_None = 0,                                            // Assume I have no render data
+  eRT_SVG,                                                 // SVG-based rendering
+
 };
+
 
 struct IRenderSystem : public ISystem
 {

@@ -2,6 +2,8 @@
 
 #include "Settings.h"
 
+// Need a physics proxy somewhere, as in simple geometry to use
+// Maybe we end up with redundant copies that should be droppable
 
 // Can be both global and local?
 struct SPhysicsContext

@@ -14,3 +14,7 @@ The singular of Pneumata is Pneumata.
 Basic smartpointers seem useful in a bunch of places. Fish those out.
 
 One advantage of "silly" base types like just defining a destructor: you can call delete on an interface without knowing anything about it - at least in principle.
+
+SVG is useful for both rendering and physics meshes
+SVG + textures is appealing. For 2D modelling it seems like a perfect fit: create the mesh first, colours and all, then overlay textures.
+Texture coordinates could be a direct mapping of a same-size bitmap, or we could get more versatile?

@@ -6,6 +6,13 @@
 
 #include "Vec2.h"
 
+enum EPhysicsType
+{
+	ePT_None = 0,                                            // Assume I have no physics data
+
+};
+
+
 struct SPhysicsDescription
 {
 	bool bActive;       // Am I affected by world physics?

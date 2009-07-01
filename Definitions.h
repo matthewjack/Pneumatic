@@ -9,9 +9,9 @@
 
 typedef unsigned char byte;
 
-typedef int PhysicsType;
-typedef int PersonalityType;
-typedef int RenderType;
+typedef int EPhysicsType;
+typedef int EPersonalityType;
+typedef int ERenderType;
 
 typedef int EntityId;
 
