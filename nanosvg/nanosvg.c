@@ -19,8 +19,6 @@
 // The SVG parser is based on Anti-Graim Geometry SVG example
 // Copyright (C) 2002-2004 Maxim Shemanarev (McSeem)
 
-#define _USE_MATH_DEFINES  // Bring in M_PI etc from Math.h
-
 #include "nanosvg.h"
 #include <string.h>
 #include <stdio.h>
@@ -28,7 +26,13 @@
 #include <math.h>
 #include <ctype.h>
 
-#pragma warning (disable: 4996) // Switch off security warnings
+#ifndef M_PI
+	#define M_PI 3.14159265358979323846264338327
+#endif
+
+#ifdef _MSC_VER
+	#pragma warning (disable: 4996) // Switch off security warnings
+#endif
 
 // Simple XML parser
 
@@ -929,9 +933,8 @@ static void pathQuadBezShortTo(struct SVGParser* p, float* cpx, float* cpy,
 
 static void svgParsePath(struct SVGParser* p, const char** attr)
 {
-	// Oops, lots of uninitialised stuff going on : rargs, cmd, etc.
 	const char* s;
-	char cmd=0, pcmd=0;
+	char cmd;
 	float args[10];
 	int nargs;
 	int rargs;
@@ -1007,7 +1010,6 @@ static void svgParsePath(struct SVGParser* p, const char** attr)
 				}
 				else
 				{
-					pcmd = cmd;
 					cmd = item[0];
 					rargs = getArgsPerElement(cmd);
 					if (cmd == 'M' || cmd == 'm')
