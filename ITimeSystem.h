@@ -12,10 +12,10 @@
 
 struct ITimeSystem : public ISystem
 {
-	/// ISystem methods
+	//// ISystem methods
 	SErrorDescriptor UnitTest(ILogSystem *pLog);
 
-	/// New methods
+	//// New methods
 	virtual void StartSession() = 0;                         // Universe begins. Nothing that happened before matters.
 	virtual void EndSession() = 0;				                   // Universe ends. Time ceases to exist.
 

@@ -8,7 +8,7 @@
 
 enum EPhysicsType
 {
-	ePT_None = 0,                                            // Assume I have no physics data
+	ePhyT_None = 0,                                            // Assume I have no physics data
 
 };
 
@@ -26,7 +26,7 @@ struct SPhysicsDescription
 
 struct IPhysics
 {
-	virtual PhysicsType GetType() const = 0;					// Physics type
+	virtual EPhysicsType GetType() const = 0;					// Physics type
 
 	virtual const SPhysicsDescription &GetDescription() const = 0;
 	virtual void SetDescription(SPhysicsDescription &description) = 0;

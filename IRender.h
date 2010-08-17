@@ -14,10 +14,28 @@
 // ?
 // Maybe a graphics guy can enlighten me.
 
+// In principle would be nice to support streaming in the API...
+
+
+// This enum is all about data formats - maybe it should actually be about transparency etc. Immature.
+
+#include "Definitions.h"
+
+enum ERenderType
+{
+	eRT_None = PN_TYPE_NONE,                                 // Assume I have no render data
+  eRT_SVG,                                                 // Stopgap measure
+
+};
 
 struct IRender
 {
-	virtual ERenderType GetType() = 0;
+	virtual ERenderType GetType() const = 0;
 
-	virtual Render
+	// What about multiple parts?
+	// Shared matrices (and properties?) but otherwise distinct...
+	virtual GeometryId GetGeometryId() const = 0;
+	virtual TextureId GetTextureId() const = 0;
+
+	virtual void RenderCustom() = 0;                         // Here as a callback to allow direct rendering through an abstract interface
 };

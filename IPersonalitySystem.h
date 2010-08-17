@@ -2,6 +2,11 @@
 
 #include "Settings.h"
 
+enum EPersonalityType
+{
+	ePerT_None = 0,
+};
+
 struct IPersonality
 {
 };

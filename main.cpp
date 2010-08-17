@@ -31,5 +31,14 @@ void main( int argc, char *argv[ ], char *envp[ ] )
 		gEnv.sys.pRenderSystem->Update(0.1f);
 	
 
+	// Associate data files with objects
+	// Load SVG files for objects
+	// Each one involves creating a mesh
+	// Potential for tesselation
+	// Rendering
+
+	
+
+
 	_getch();
 }

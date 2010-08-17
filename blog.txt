@@ -1,0 +1,59 @@
+A Developers Log
+----------------
+
+[12/07/09]
+It strikes me that one of the most important things i might do on this project is get good at projects. The primary purpose of this log is
+thus to record what works and what doesn't. It's not about the detail, it's about process and what works for me.
+
+In my last real session perhaps 10 days ago, I get nanosvg and some rendering code hacked in and thus got some real 2D graphics on screen.
+That was a big morale boost! Then I had to figure out how to do it properly. Now, in concrete terms, the problems were that there was no
+concept of geometry beign shared between entities, or even entities! It was just some graphics on screen with no semantics at all.
+
+Mainly today, I've been trying to figure out the next step. This has been hard - I've fleshed out a bit of code but I had set the goals
+of displaying a level on screen and/or entities. I think the main problem is that there is a lot of architecture I need to put in place
+to do that in any useful way.
+
+It strikes me that at work I strongly lean towards the smallest useful change at a time and not trying to make it "perfect" - because
+that is a great big ball of wool that you will never unravel. The smallest useful change is usually quite big enough to warrant commiting
+and testing.
+
+In contrast, on this project I keep wondering about writing systems (or at least APIs and skeleton implementations). Now, I should be reassured
+that I don't always have this urge. I think the difference is that there is usually already code tryign to do most of what I need, and so
+there is something to massage. How shodul i impleemnt this? can always be answered by referring to what's there and working from that example.
+
+Here I have no example - although i've started trying to find them on the net. The chasm can be paralysing.
+
+I think the goals I set were unattainable in one session without wasting time hacking it up. Note that I had already done that in the last
+session. I think today I can put in place some useful infrastructure that makes my current thoughts concrete, but the goals are sessions away.
+
+So, tentative conclusion: simulating the result by hacking is a good boost, followed by frustrating inactivity. Perhaps this should be done
+on a cycle?
+
+
+[19/07/09]
+Sunday, home since Friday night. Using Dad's laptop, for lack of any other decent machine. As important as it is to get one set up, work must be done every day.
+Yesterday I did very little. This morning I found myself focus testing World of Goo with Mum as a subject! That was interesting - it did catch her attention, but at
+least for the complete beginner, there was more it could be doing.
+Today's been a bit frustrating because I'm still long off compiling. Its tough with no pre-existing framework.
+
+Moral of the day: if you're free and flexible, remember that others are not. Weekends are precious because that's when you can socialise and unwind, so make sure you
+know what everyone else is up to.
+
+
+[20/07/09]
+An observation: I feel most productive when I'm just focussing on some part of the code and getting it 'right' without worrying about whether its completely required for
+the next goal. Now, on one hand this concerns me that I'm wasting my time. On the other hand, I think I have to hit some kind of critical mass of code before this
+framework becomes a really useful framework, and the sooner I hit that, the better, as long as what I'm writing should be useful sooner or later. Also, I think that
+figuring out what the design really needs is the hardest bit giving me the most headaches. If I find something I'm 80% sure will be useful, I'm just as well to hammer it
+out. We'll see how this works out in practice! Currently about 20 days into the month without compilation, let alone graphics!
+
+[21/09/09]
+Two whole months later... Rather eventful months, to be fair. The potentially productive time - outside of travelling, commitments, nursing Dad and worrying about him and helping out around the house - has been spent perhaps 65% on the GPG article and 35% on repeairing the conservatory, with that ratio to balance out a little further in the next few days. Final few days that is - I have very little time before I head back to FFM. From this I take:
+A lesson: some tasks, like writing an article, are open-ended. They should be combined with other tasks just as important to help keep a sense of balance.
+An observation: I have spent a lot of time on the conservatory when, by shucking the task or completely bodging it, I might have taken less. I have taken it on because I want to do my bit here and earn my way, as that's going to help a lot if my parents are to let me stay for a few months next year. I haven't bodged it because it's not in my nature.
+Neither is about a mistake, I would say. Having a really good article in print is an excellent step to wards my vaguely defined goals. Having somewhere to stay next year is crucial! But observe that that is where time has gone, not on Pneumata, which was my main objective at the outset.
+I think the best thing I can do is now to bring back that balance and to try to persist in progress after I return.
+
+
+[17/08/10]
+My goodness! Nearly a year has passed since I did signficant work on this. And what a year - but that is not to record here. Ressurected the code to show Doug, possibly to find some useful bits for our GDC presentation demo.

@@ -1,5 +1,8 @@
 #pragma once
 
+// In this implementation, entity pointers can be invalidated by a call to Create()
+// However, they shouldn't be stored anyway. Can probably get by with this.
+
 #include "IEntitySystem.h"
 
 #include <vector>
@@ -7,12 +10,15 @@
 class CEntitySystem : public IEntitySystem
 {
 public:
-	/// IEntitySystem methods
+	//// IEntitySystem methods
 	EntityId Create(EEntityType eType, const char * sName);
 	bool Destroy(EntityId nId);
-	bool Find(const SEntityQuery &query, TEntities &result) const;
 
-	/// New methods
+	bool Find(const SEntityQuery &query, TEntities &result) const;
+	const IEntity * GetEntity(EntityId entityId) const;
+	IEntity * GetEntity(EntityId entityId);
+
+	//// New methods
 	CEntitySystem(void);
 	~CEntitySystem(void);
 
@@ -28,7 +34,7 @@ protected:
 		
 		char sName[PN_ENTITY_NAME_LENGTH];
 
-		/// IEntity methods
+		//// IEntity methods
 
 		EntityId GetId() const { return id; }
 
@@ -50,7 +56,7 @@ protected:
 		Vec2 GetPosition() const { return vPos; }
 		void SetPosition(Vec2 _vPos) { vPos = _vPos; }
 
-		/// New methods
+		//// New methods
 
 		SEntity(EntityId _id, EEntityType _type) : 
 			id(_id), type(_type), pPhysics(0), pPersonality(0), pRender(0)

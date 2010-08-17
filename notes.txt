@@ -18,3 +18,17 @@ One advantage of "silly" base types like just defining a destructor: you can cal
 SVG is useful for both rendering and physics meshes
 SVG + textures is appealing. For 2D modelling it seems like a perfect fit: create the mesh first, colours and all, then overlay textures.
 Texture coordinates could be a direct mapping of a same-size bitmap, or we could get more versatile?
+
+Overall approach to ordering of functions within APIs: group by interface, group by functionality, order alphabetically, in that order.
+Hence Create is followed by Destroy, then we continue down the alphabet. Cpp file follows header order. Hopefully aboid ever swapping around.
+In cpp files, inner class definitions move to the top. Otherwise we would be mixing its definition with those of the outer class
+
+Try to avoid functions called "Get". Much nore helpful to include what you're getting.
+
+Should I consider exceptions? That is probably best left as a big refactor for later... Or is it.
+
+Other nice things to have: wrapped array. Ah, Boost has one? array_wrapper was suggested by Stroustrup
+
+Lots of use of unsigned, where size_t would probably be correct
+
+Ned uint 32 for a few things. Like enum flags.

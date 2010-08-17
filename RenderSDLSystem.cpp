@@ -1,6 +1,6 @@
 #include "RenderSDLSystem.h"
 
-#include "../Sources/SDL-1.2.13/include/SDL.h"
+#include "../Libraries/SDL-1.2.13/include/SDL.h"
 
 #include <windows.h>
 #include <GL/gl.h>
@@ -8,6 +8,8 @@
 
 #include "Environment.h"
 #include "ILogSystem.h"
+#include "IEntitySystem.h"
+#include "IGeometrySystem.h"
 
 CRenderSDLSystem::CRenderSDLSystem()
 {
@@ -102,133 +104,81 @@ CRenderSDLSystem::~CRenderSDLSystem()
 
 void CRenderSDLSystem::Update(float fDelta)
 {
-    static GLfloat v0[] = { -1.0f, -1.0f,  1.0f };
-    static GLfloat v1[] = {  1.0f, -1.0f,  1.0f };
-    static GLfloat v2[] = {  1.0f,  1.0f,  1.0f };
-    static GLfloat v3[] = { -1.0f,  1.0f,  1.0f };
-    static GLfloat v4[] = { -1.0f, -1.0f, -1.0f };
-    static GLfloat v5[] = {  1.0f, -1.0f, -1.0f };
-    static GLfloat v6[] = {  1.0f,  1.0f, -1.0f };
-    static GLfloat v7[] = { -1.0f,  1.0f, -1.0f };
-    static GLubyte red[]    = { 255,   0,   0, 255 };
-    static GLubyte green[]  = {   0, 255,   0, 255 };
-    static GLubyte blue[]   = {   0,   0, 255, 255 };
-    static GLubyte white[]  = { 255, 255, 255, 255 };
-    static GLubyte yellow[] = {   0, 255, 255, 255 };
-    static GLubyte black[]  = {   0,   0,   0, 255 };
-    static GLubyte orange[] = { 255, 255,   0, 255 };
-    static GLubyte purple[] = { 255,   0, 255,   0 };
+	FrameSetup();
+	
+	// We need to fetch all renderable objects
+	// For now, all at once, but an iterator is the way to go
+	TEntities renderableEntities;
+	SEntityQuery query;
+	query.renderType = //Hmm.
+	gEnv.sys.pEntitySystem->Find(query, renderableEntities);
 
-    /* Clear the color and depth buffers. */
-    glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+	for (TEntities::const_iterator it = renderableEntities.begin(); it != renderableEntities.end(); ++it)
+	{
+		EntityId id = *it;
+		IEntity *pEntity = gEnv.sys.pEntitySystem->GetEntity(id);
+		assert(pEntity);
 
-    /* We don't want to modify the projection matrix. */
-    glMatrixMode( GL_MODELVIEW );
-    glLoadIdentity( );
+    ERenderType renderType = pEntity->GetIRender->GetType();
+		switch (renderType)
+		{
+		case eRT_SVG:
+			RenderSVGObject();
 
-    /* Move down the z-axis. */
-    glTranslatef( 0.0, 0.0, -5.0 );
 
-    /* Rotate. */
-		static float angle = 30.0f;
-    glRotatef( angle, 0.0, 1.0, 0.0 );
+			break;
+		default:
+			assert(false);
+		}
+	}
 
-    if( true ) {
 
-        if( ++angle > 360.0f ) {
-            angle = 0.0f;
-        }
 
-    }
+//glClear(GL_COLOR_BUFFER_BIT); // no depth buffer
 
-    /* Send our triangle data to the pipeline. */
-    glBegin( GL_TRIANGLES );
+			glColor3f(1.0f, 1.0f, 1.0);
+			glBegin(GL_LINE_STRIP);
+			glVertex2f(100.0f,100.0f);
+			glVertex2f(200.0f,200.0f);
+			glEnd();
 
-    glColor4ubv( red );
-    glVertex3fv( v0 );
-    glColor4ubv( green );
-    glVertex3fv( v1 );
-    glColor4ubv( blue );
-    glVertex3fv( v2 );
+			gEnv.sys.pLogSystem->Log(eLV_ERRORS, "Any error?: %s\n", SDL_GetError());
 
-    glColor4ubv( red );
-    glVertex3fv( v0 );
-    glColor4ubv( blue );
-    glVertex3fv( v2 );
-    glColor4ubv( white );
-    glVertex3fv( v3 );
+		// Load
+		static struct SVGPath* plist = 0;
+		if (!plist)
+			plist = svgParseFromFile("test.svg");
+		// Use...
+		for (SVGPath* it = plist; it; it = it->next)
+		{
+			glColor3f(1.0f, 1.0f, 1.0);
+			glBegin(GL_LINE_STRIP);
+			for (int i=0; i<it->npts; i++)
+			{
+				Vec2 vPoint(it->pts[i*2], it->pts[i*2+1]);
+				glVertex2f(vPoint.x,vPoint.y);
+			}
+			glEnd();
+		// Delete
+		//svgDelete(plist);
+		}
+		
 
-    glColor4ubv( green );
-    glVertex3fv( v1 );
-    glColor4ubv( black );
-    glVertex3fv( v5 );
-    glColor4ubv( orange );
-    glVertex3fv( v6 );
-
-    glColor4ubv( green );
-    glVertex3fv( v1 );
-    glColor4ubv( orange );
-    glVertex3fv( v6 );
-    glColor4ubv( blue );
-    glVertex3fv( v2 );
-
-    glColor4ubv( black );
-    glVertex3fv( v5 );
-    glColor4ubv( yellow );
-    glVertex3fv( v4 );
-    glColor4ubv( purple );
-    glVertex3fv( v7 );
-
-    glColor4ubv( black );
-    glVertex3fv( v5 );
-    glColor4ubv( purple );
-    glVertex3fv( v7 );
-    glColor4ubv( orange );
-    glVertex3fv( v6 );
-
-    glColor4ubv( yellow );
-    glVertex3fv( v4 );
-    glColor4ubv( red );
-    glVertex3fv( v0 );
-    glColor4ubv( white );
-    glVertex3fv( v3 );
-
-    glColor4ubv( yellow );
-    glVertex3fv( v4 );
-    glColor4ubv( white );
-    glVertex3fv( v3 );
-    glColor4ubv( purple );
-    glVertex3fv( v7 );
-
-    glColor4ubv( white );
-    glVertex3fv( v3 );
-    glColor4ubv( blue );
-    glVertex3fv( v2 );
-    glColor4ubv( orange );
-    glVertex3fv( v6 );
-
-    glColor4ubv( white );
-    glVertex3fv( v3 );
-    glColor4ubv( orange );
-    glVertex3fv( v6 );
-    glColor4ubv( purple );
-    glVertex3fv( v7 );
-
-    glColor4ubv( green );
-    glVertex3fv( v1 );
-    glColor4ubv( red );
-    glVertex3fv( v0 );
-    glColor4ubv( yellow );
-    glVertex3fv( v4 );
-
-    glColor4ubv( green );
-    glVertex3fv( v1 );
-    glColor4ubv( yellow );
-    glVertex3fv( v4 );
-    glColor4ubv( black );
-    glVertex3fv( v5 );
-
-    glEnd( );
 
 	SDL_GL_SwapBuffers();
+
+	
+}
+
+
+void CRenderSDLSystem::FrameSetup(void)
+{
+	lMatrixMode (GL_PROJECTION);
+	glLoadIdentity ();
+	glOrtho (0, XSize, YSize, 0, 0, 1);
+	glMatrixMode (GL_MODELVIEW);
+	glLoadIdentity ();
+
+	glDisable(GL_DEPTH_TEST);
+	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 }

@@ -28,10 +28,10 @@ enum ELogVerbosity
 struct ILogSystem : public ISystem
 {
 public:
-	/// ISystem methods
+	//// ISystem methods
 	virtual SErrorDescriptor UnitTest(ILogSystem *pLog) = 0; // Unit testing a logger is awkward - we delegate it
 
-	/// New methods
+	//// New methods
 	virtual ~ILogSystem() {};
 
 	typedef const ELogVerbosity * const TVerbosityPeeker;

@@ -8,14 +8,17 @@
 class CRenderSDLSystem : public IRenderSystem
 {
 public:
-	/// ISystem interface
+	//// ISystem interface
 	SErrorDescriptor Shutdown();
 
-	/// IRenderSystem interface
+	//// IRenderSystem interface
 	SErrorDescriptor Init();
 	void Update(float fDelta);
 
 	// New methods
 	CRenderSDLSystem(void);
 	~CRenderSDLSystem(void);
+
+private:
+	void FrameSetup(void);                                   // Clearing, matrix setup, etc, before actual rendering
 };

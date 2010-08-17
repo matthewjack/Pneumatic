@@ -182,6 +182,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\GeometrySystem.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\GeometrySystem.h"
+				>
+			</File>
+			<File
 				RelativePath=".\LogSystem.cpp"
 				>
 			</File>
@@ -195,6 +203,10 @@
 			</File>
 			<File
 				RelativePath=".\RenderSDLSystem.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\RenderSDLSystem.h"
 				>
 			</File>
 			<File
@@ -215,6 +227,14 @@
 			</File>
 			<File
 				RelativePath=".\IEntitySystem.h"
+				>
+			</File>
+			<File
+				RelativePath=".\IGeometry.h"
+				>
+			</File>
+			<File
+				RelativePath=".\IGeometrySystem.h"
 				>
 			</File>
 			<File
@@ -258,6 +278,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\DefinitionsGraphics.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Settings.h"
 				>
 			</File>
@@ -278,6 +302,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\IGeometrySystem.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\ITimeSystem.cpp"
 				>
 			</File>
@@ -291,11 +319,11 @@
 			</File>
 		</Filter>
 		<File
-			RelativePath=".\notes.txt"
+			RelativePath=".\blog.txt"
 			>
 		</File>
 		<File
-			RelativePath=".\RenderSDLSystem.h"
+			RelativePath=".\notes.txt"
 			>
 		</File>
 	</Files>

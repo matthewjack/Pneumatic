@@ -3,8 +3,7 @@
 #include "ILogSystem.h"
 
 #include <string>
-
-#include "stdio.h"
+#include <stdio.h>
 
 // Should be called LogFileSystem!
 
@@ -14,11 +13,11 @@
 class CLogSystem : public ILogSystem
 {
 public:
-	/// ILogSystem interface
+	//// ILogSystem interface
 	SErrorDescriptor UnitTest(ILogSystem *) 
 		{ return SErrorDescriptor(); }                         // Very awkward to unit test this implementation
 	
-	/// Unique to this implementation
+	//// Unique to this implementation
 	
 	// Could become Init(...) ?
 	bool SetLogPath( const char * sPath, bool bTest = false );  // Set path of file to use for logging. bTest = true will cause it to try to create and delete the file.
