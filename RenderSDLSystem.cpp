@@ -1,6 +1,6 @@
 #include "RenderSDLSystem.h"
 
-#include "../Sources/SDL-1.2.13/include/SDL.h"
+#include "../Libraries/SDL-1.2.13/include/SDL.h"
 
 #include <windows.h>
 #include <GL/gl.h>
