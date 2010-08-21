@@ -3,7 +3,6 @@
 #include "LogSystem.h"
 #include "TimeSystem.h"
 #include "EntitySystem.h"
-#include "RenderSDLSystem.h"
 
 // A few pinciples:
 // For each system it should be possible to create and unit test multiple instances
@@ -14,9 +13,6 @@ CEnvironment gEnv;
 
 SSystemsTable::SSystemsTable() : 
 		pEntitySystem(0),
-		pPersonalitySystem(0),
-		pPhysicsSystem(0),
-		pRenderSystem(0),
 		pTimeSystem(0),
 		pLogSystem(0)
 		{}
@@ -43,15 +39,6 @@ SErrorDescriptor CEnvironment::Init(SConfiguration &config)
 	// Entity system
 	sys.pEntitySystem = new CEntitySystem();
 
-	// Render system
-	sys.pRenderSystem = new CRenderSDLSystem();
-	err = sys.pRenderSystem->Init();
-	if (err)
-		return err;
-
-
-	//sys.pPersonalitySystem = new CPersonalitySystem();
-	//sys.pPhysicsSystem = new CPhysicsSystem();
 
 	sys.pLogSystem->Log(eLV_EVENTS,"Environment: systems OK\n");
 	return PN_NO_ERROR;
@@ -61,10 +48,6 @@ CEnvironment::~CEnvironment(void)
 {
 	sys.pLogSystem->Log(eLV_EVENTS,"Environment Shutting down systems\n");
 
-	//delete sys.pPersonalitySystem;
-	//delete sys.pPhysicsSystem;
-	
-	delete sys.pRenderSystem;
 	delete sys.pEntitySystem;
 	delete sys.pTimeSystem;
 

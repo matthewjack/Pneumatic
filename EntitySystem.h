@@ -11,10 +11,10 @@ class CEntitySystem : public IEntitySystem
 {
 public:
 	//// IEntitySystem methods
-	EntityId Create(EEntityType eType, const char * sName);
+	EntityId Create(const char * sName);
 	bool Destroy(EntityId nId);
 
-	bool Find(const SEntityQuery &query, TEntities &result) const;
+//	bool Find(const SEntityQuery &query, TEntities &result) const;
 	const IEntity * GetEntity(EntityId entityId) const;
 	IEntity * GetEntity(EntityId entityId);
 
@@ -26,10 +26,8 @@ protected:
 	struct SEntity : public IEntity
 	{
 		EntityId id;
-		EEntityType type;
-		IPhysics * pPhysics;
-		IPersonality * pPersonality;
-		IRender * pRender;
+
+    // Oh, I gave it pointers. That's so damn lazy.
 		Vec2 vPos;
 		
 		char sName[PN_ENTITY_NAME_LENGTH];
@@ -41,25 +39,21 @@ protected:
 		const char * GetName() const { return sName; }
 		void SetName(const char * _sName);
 
-		const IPhysics * GetPhysics() const { return pPhysics; }
-		IPhysics * GetPhysics() { return pPhysics; }
-		void SetPhysics(IPhysics *_pPhysics);
+//		const IPhysics * GetPhysics() const { return pPhysics; }
+//		IPhysics * GetPhysics() { return pPhysics; }
+//		void SetPhysics(IPhysics *_pPhysics);
 
-		const IPersonality * GetPersonality() const { return pPersonality; }
-		IPersonality * GetPersonality() { return pPersonality; }
-		void SetPersonality(IPersonality *_pPersonality);
-
-		const IRender * GetRender() const { return pRender; }
-		IRender * GetRender() { return pRender; }
-		void SetRender(IRender *_pRender);
+//		const IRender * GetRender() const { return pRender; }
+//		IRender * GetRender() { return pRender; }
+//		void SetRender(IRender *_pRender);
 
 		Vec2 GetPosition() const { return vPos; }
 		void SetPosition(Vec2 _vPos) { vPos = _vPos; }
 
 		//// New methods
 
-		SEntity(EntityId _id, EEntityType _type) : 
-			id(_id), type(_type), pPhysics(0), pPersonality(0), pRender(0)
+		SEntity(EntityId _id) : 
+			id(_id)
  			{	sName[0] = '\n'; }
 	};
 

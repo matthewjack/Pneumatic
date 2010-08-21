@@ -3,9 +3,6 @@
 // Apply salts and buffer reuse later
 
 #include "EntitySystem.h"
-#include "IPhysics.h"
-#include "IPersonalitySystem.h"
-#include "IRenderSystem.h"
 
 //#include physics etc proxies for delete
 
@@ -26,17 +23,12 @@ void CEntitySystem::SEntity::SetName(const char * _sName)
 	}
 }
 
-void CEntitySystem::SEntity::SetPhysics(IPhysics *_pPhysics) { delete(pPhysics); pPhysics = _pPhysics; }
-void CEntitySystem::SEntity::SetPersonality(IPersonality *_pPersonality) { delete(pPersonality); pPersonality = _pPersonality; }
-void CEntitySystem::SEntity::SetRender(IRender *_pRender) { delete(pRender); pRender = _pRender; }
-
-
 //// IEntitySystem methods
 
-EntityId CEntitySystem::Create(EEntityType eType, const char * sName)
+EntityId CEntitySystem::Create(const char * sName)
 {
 	EntityId newID = (EntityId) m_Entities.size();
-	SEntity entity(newID,eET_Invalid);
+	SEntity entity(newID);
 	entity.SetName(sName);
 	m_Entities.push_back(entity);
 	return newID;
@@ -47,10 +39,10 @@ bool CEntitySystem::Destroy(EntityId nId)
 	return true;
 }
 
-bool CEntitySystem::Find(const SEntityQuery &query, TEntities &result) const
-{
-	return true;
-}
+//bool CEntitySystem::Find(const SEntityQuery &query, TEntities &result) const
+//{
+//	return true;
+//}
 
 const IEntity * CEntitySystem::GetEntity(EntityId entityId) const
 {
@@ -75,7 +67,7 @@ IEntity * CEntitySystem::GetEntity(EntityId entityId)
 
 CEntitySystem::CEntitySystem(void)
 {
-	SEntity invalid(0,eET_Invalid);
+	SEntity invalid(0);
 	m_Entities.push_back(invalid);
 }
 
