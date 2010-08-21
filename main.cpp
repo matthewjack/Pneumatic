@@ -1,10 +1,11 @@
 #include "ITimeSystem.h"
 #include "ILogSystem.h"
-#include "IRenderSystem.h"
 
 #include "Environment.h"
 
 #include "UnitTests.h"
+
+#include "Documentation.h"
 
 #include "conio.h"
 
@@ -27,17 +28,6 @@ void main( int argc, char *argv[ ], char *envp[ ] )
 
 	PN_LOG_EXT(eLV_ERRORS, int b = 5+4, "%d foo %s",b, "myFoot");
 
-	for (int i=0; i<360; i++)
-		gEnv.sys.pRenderSystem->Update(0.1f);
-	
-
-	// Associate data files with objects
-	// Load SVG files for objects
-	// Each one involves creating a mesh
-	// Potential for tesselation
-	// Rendering
-
-	
 
 
 	_getch();

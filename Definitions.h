@@ -1,11 +1,18 @@
 #pragma once
 
+/**
+ * @file Central place for system-wide definitions
+ * 
+ * Very basic types and core macros.
+ */
+
+
 #ifndef NULL
 	#define NULL 0
 #endif
 
-// Lets have all defines and macros start PN_ to avoid conflicts
-#define PN_INVALID_TYPE ((int)-1)   // What was this for?
+// All defines and macros start PN_ to avoid conflicts
+#define PN_INVALID_TYPE ((int)-1)                          // MTJ:21/08/10 - What was this for?
 
 #ifndef byte 
 	typedef unsigned char byte;
@@ -13,19 +20,17 @@
 
 typedef unsigned BitFieldEnum;                             // Used whenever we combine enum-based bitfield flags
 
-typedef enum EPhysicsType;
-typedef enum EPersonalityType;
-typedef enum ERenderType;
+//typedef enum EPhysicsType;
+//typedef enum ERenderType;
 
 #define PN_TYPE_NONE ((int)0)                              // Can be used on any of the basic system types, e.g. EPhysicsType
 
+// MTJ:xx:xx:09
 // I'm tempted to put in a typed int of some kind, like tickets
 // Should swap into the typedef easily enough
 // Perhaps first a pure typed int, then salted and ticket variations, in a hierarchy but without virtuals
 
-typedef int EntityId;           // Salted id for uniquely identifying entities
-typedef int GeometryId;             // (unsalted?) id of a piece of geometry 
-typedef int TextureId;
+typedef int EntityId;                                     // Salted id for uniquely identifying entities
 typedef int UserDataId;
 
 struct IPhysics;

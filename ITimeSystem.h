@@ -1,8 +1,5 @@
 #pragma once
 
-// Could all systems share an core interface?
-// Some kind of virtual constructor... is perhaps the tricky bit. Best left out actually, to allow for multiple implementations
-// Destructor, update, unit test, seem plausible. maybe other things?
 // Could this help simplify some code?
 // What happens to the time between frames? If it counts towards session time but not the time the last frame took, is that inconsistent?
 // Is it more or less correct to call last frame time the time between frames?

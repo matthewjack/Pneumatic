@@ -3,6 +3,9 @@
 // Skeleton of common interface across all system interfaces
 // Should eventually encompass memory statistics etc
 
+// Some kind of virtual constructor... is perhaps the tricky bit. Best left out actually, to allow for multiple implementations
+// Update?
+
 // Constructors of systems can't fail, but init can fail, returning an error code
 //	virtual SErrorDescriptor Init() {};  Should this be compulsory? Or does it always need different parameters?
 

@@ -1,6 +1,11 @@
 #pragma once
 
-// Optional settings to configure compilation
+
+/**
+ * @file Central place for compile-time settings
+ * 
+ * Compile-time settings and compiler environment settings
+ */
 
 #define PN_LOG_LEVEL eLV_COMMENTS
 

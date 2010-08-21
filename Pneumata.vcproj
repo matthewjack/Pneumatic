@@ -182,14 +182,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\GeometrySystem.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\GeometrySystem.h"
-				>
-			</File>
-			<File
 				RelativePath=".\LogSystem.cpp"
 				>
 			</File>
@@ -199,14 +191,6 @@
 			</File>
 			<File
 				RelativePath=".\main.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\RenderSDLSystem.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\RenderSDLSystem.h"
 				>
 			</File>
 			<File
@@ -230,35 +214,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\IGeometry.h"
-				>
-			</File>
-			<File
-				RelativePath=".\IGeometrySystem.h"
-				>
-			</File>
-			<File
 				RelativePath=".\ILogSystem.h"
-				>
-			</File>
-			<File
-				RelativePath=".\IPersonalitySystem.h"
-				>
-			</File>
-			<File
-				RelativePath=".\IPhysics.h"
-				>
-			</File>
-			<File
-				RelativePath=".\IPhysicsSystem.h"
-				>
-			</File>
-			<File
-				RelativePath=".\IRender.h"
-				>
-			</File>
-			<File
-				RelativePath=".\IRenderSystem.h"
 				>
 			</File>
 			<File
@@ -278,7 +234,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\DefinitionsGraphics.h"
+				RelativePath=".\Documentation.h"
 				>
 			</File>
 			<File
@@ -299,10 +255,6 @@
 			>
 			<File
 				RelativePath=".\IEntitySystem.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\IGeometrySystem.cpp"
 				>
 			</File>
 			<File
